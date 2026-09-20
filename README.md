@@ -89,6 +89,7 @@ WHERE total_spend > (
 ORDER BY total_spend DESC;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad6f76b7ff726406ea708030165f1d45465dd496/Screenshot%202026-09-20%20085858.png)
 This query uses a CTE to calculate the total spending of each customer by multiplying the quantity purchased by the product price. It then calculates the average customer spending and returns only customers whose total spending is above the average.
+# Window-function queries
 # Rank customers by total amount spent, highest first
 SELECT
     c.customer_id,
@@ -106,7 +107,7 @@ JOIN products p
     ON oi.product_id = p.product_id
 GROUP BY c.customer_id, c.customer_name
 ORDER BY spending_rank;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ed6a70f3024952b7a09ac7d6a0e83cf115436ad6/Screenshot%202026-09-20%20090804.png)
 This calculates each customer's total spending and uses RANK() to rank customers from the highest spender to the lowest.
 # Number each customer's orders in the order placed
 SELECT
