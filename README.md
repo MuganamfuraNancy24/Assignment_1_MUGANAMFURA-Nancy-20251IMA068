@@ -48,4 +48,21 @@ INNER JOIN products p
 ORDER BY oi.order_id;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad7953f55d3a84fe1ea01179532142116ff25524/Screenshot%202026-09-20%20084026.png)
 This query connects order items with products so that the supermarket can see which products were purchased, their categories, prices, and quantities.
+# Query 3:
+SELECT
+    c.customer_id,
+    c.customer_name,
+    c.email,
+    c.city,
+    o.order_id,
+    o.order_date
+FROM customers c
+LEFT JOIN orders o
+    ON c.customer_id = o.customer_id
+ORDER BY c.customer_id, o.order_date;
+[Screenshot] (
+This query uses a LEFT JOIN to list all customers and their orders. Customers who have no orders are also included, with NULL values for the order information.
+
+
+
 ## CTE Query
