@@ -162,5 +162,5 @@ FROM (
         ON c.customer_id = o.customer_id
 )
 ORDER BY customer_id, order_date;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/63710f618f16cc225dc03eb77c4039ae2eb170ee/Screenshot%202026-09-20%20091042.png)
 LAG() retrieves the previous order date for each customer. Subtracting the previous date from the current date gives the number of days between orders. The first order for each customer will have NULL because there is no previous order.
