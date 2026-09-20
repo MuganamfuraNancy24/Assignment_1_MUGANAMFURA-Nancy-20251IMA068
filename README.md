@@ -123,7 +123,7 @@ FROM customers c
 JOIN orders o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, order_number;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/c87255a0add3bf130d5a55ac1acad08a2f98f3a5/Screenshot%202026-09-20%20085858.png)
 ROW_NUMBER() assigns a sequential number to each customer's orders based on the order date.
 # Show a running total of revenue over time
 SELECT
