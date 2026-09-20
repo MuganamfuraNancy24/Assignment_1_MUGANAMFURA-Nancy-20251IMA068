@@ -1,6 +1,6 @@
 # Assignment_1_MUGANAMFURA-Nancy-20251IMA068
 # PL/SQL Assignment One – Sunrise Supermarket
-.Name: Muganamfura Nancy
+Name: Muganamfura Bizimana Nancy
 Student ID: 20251IMA068
 Database Management System i used : Oracle Database 21c & sql developer
 ## Summary of What I Did
@@ -34,6 +34,8 @@ INNER JOIN customers c
 ORDER BY o.order_date;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/c48886f96dced326d4812616cfcb4ad816be819f/Screenshot%202026-09-20%20082718.png)
 The query connects the orders table with the customers table using customer_id. This allows management to see which customer placed each order and the date of the order.
+Business Interpretation:
+This information helps Sunrise Supermarket understand customer purchasing activity and identify when customers place orders.
 # Query 2:
 SELECT
     oi.order_item_id,
@@ -47,7 +49,9 @@ INNER JOIN products p
     ON oi.product_id = p.product_id
 ORDER BY oi.order_id;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad7953f55d3a84fe1ea01179532142116ff25524/Screenshot%202026-09-20%20084026.png)
-This query connects order items with products so that the supermarket can see which products were purchased, their categories, prices, and quantities.
+This query connects order items with products so that the supermarket can see which products were purchased, their categories, prices, and quantities. 
+Business Interpretation:
+Management can use this information to understand which products are being purchased and how many units customers buy.
 # Query 3:
 SELECT
     c.customer_id,
@@ -61,7 +65,8 @@ LEFT JOIN orders o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, o.order_date;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/9f1cec6471e5fefdfccacbc7ab8554d08b8c8195/Screenshot%202026-09-20%20085116.png)
-This query uses a LEFT JOIN to list all customers and their orders. Customers who have no orders are also included, with NULL values for the order information.
+This query uses a LEFT JOIN to list all customers and their orders. Customers who have no orders are also included, with NULL values for the order information. 
+
 ## CTE Query
 WITH customer_totals AS (
     SELECT
@@ -89,6 +94,8 @@ WHERE total_spend > (
 ORDER BY total_spend DESC;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad6f76b7ff726406ea708030165f1d45465dd496/Screenshot%202026-09-20%20085858.png)
 This query uses a CTE to calculate the total spending of each customer by multiplying the quantity purchased by the product price. It then calculates the average customer spending and returns only customers whose total spending is above the average.
+Business Interpretation:
+This helps management identify customers who spend more than the average customer. The supermarket can use this information when planning customer loyalty programs and marketing strategies.
 # Window-function queries
 # Rank customers by total amount spent, highest first
 SELECT
@@ -109,6 +116,7 @@ GROUP BY c.customer_id, c.customer_name
 ORDER BY spending_rank;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ed6a70f3024952b7a09ac7d6a0e83cf115436ad6/Screenshot%202026-09-20%20090804.png)
 This calculates each customer's total spending and uses RANK() to rank customers from the highest spender to the lowest.
+
 # Number each customer's orders in the order placed
 SELECT
     c.customer_id,
@@ -164,3 +172,16 @@ FROM (
 ORDER BY customer_id, order_date;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/63710f618f16cc225dc03eb77c4039ae2eb170ee/Screenshot%202026-09-20%20091042.png)
 LAG() retrieves the previous order date for each customer. Subtracting the previous date from the current date gives the number of days between orders. The first order for each customer will have NULL because there is no previous order.
+## Challenges and Resolutions
+# Challenge 1: Writing JOIN Queries
+At first, connecting the four tables correctly was challenging because each table contains different information.
+Resolution:
+I used the primary and foreign key relationships between the tables to determine how they should be joined.
+# Challenge 2: CTE Query
+The CTE query was challenging because I needed to calculate each customer's total spending and then compare it with the average spending.
+Resolution:
+I first calculated the total spending for each customer inside the CTE and then used a subquery to calculate the average.
+# Challenge 3: Understanding Window Functions
+Understanding how the running total works with PARTITION BY and ORDER BY was challenging.
+Resolution:
+I used PARTITION BY customer_id to calculate the running total separately for each customer and ORDER BY order_date to calculate it chronologically.
