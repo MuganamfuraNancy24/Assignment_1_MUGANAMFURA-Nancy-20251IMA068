@@ -173,6 +173,9 @@ FROM (
 ORDER BY customer_id, order_date;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/63710f618f16cc225dc03eb77c4039ae2eb170ee/Screenshot%202026-09-20%20091042.png)
 LAG() retrieves the previous order date for each customer. Subtracting the previous date from the current date gives the number of days between orders. The first order for each customer will have NULL because there is no previous order.
+## Business Interpretation
+The database analysis provides Sunrise Supermarket with useful information about customer purchasing behavior and sales activity.The JOIN queries make it possible to connect customers, orders, products, and quantities. The CTE identifies customers whose spending is above the average, while the window function shows how customer spending develops over time.
+These results can help management understand customer behavior, monitor product purchases, and make better decisions about customer retention and sales strategies.
 ## Challenges and Resolutions
 # Challenge 1: Writing JOIN Queries
 At first, connecting the four tables correctly was challenging because each table contains different information.
