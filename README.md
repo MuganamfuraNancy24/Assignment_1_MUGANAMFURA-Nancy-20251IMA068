@@ -60,9 +60,31 @@ FROM customers c
 LEFT JOIN orders o
     ON c.customer_id = o.customer_id
 ORDER BY c.customer_id, o.order_date;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/9f1cec6471e5fefdfccacbc7ab8554d08b8c8195/Screenshot%202026-09-20%20085116.png)
 This query uses a LEFT JOIN to list all customers and their orders. Customers who have no orders are also included, with NULL values for the order information.
-
-
-
 ## CTE Query
+WITH customer_totals AS (
+    SELECT
+        c.customer_id,
+        c.customer_name,
+        SUM(oi.quantity * p.price) AS total_spend
+    FROM customers c
+    JOIN orders o
+        ON c.customer_id = o.customer_id
+    JOIN order_items oi
+        ON o.order_id = oi.order_id
+    JOIN products p
+        ON oi.product_id = p.product_id
+    GROUP BY c.customer_id, c.customer_name
+)
+SELECT
+    customer_id,
+    customer_name,
+    total_spend
+FROM customer_totals
+WHERE total_spend > (
+    SELECT AVG(total_spend)
+    FROM customer_totals
+)
+ORDER BY total_spend DESC;
+[Screenshot] (
