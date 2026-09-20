@@ -139,7 +139,7 @@ JOIN products p
     ON oi.product_id = p.product_id
 GROUP BY o.order_date
 ORDER BY o.order_date;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/1e40851bc8cbff530d76fec2fb53bdc2ed41b096/Screenshot%202026-09-20%20090804.png)
 The query calculates revenue for each order date and then uses a window function to calculate the cumulative revenue over time.
 # Show days between the current and previous order for each customer
 SELECT
