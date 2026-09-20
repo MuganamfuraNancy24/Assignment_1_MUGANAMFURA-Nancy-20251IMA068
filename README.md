@@ -11,7 +11,7 @@ Open Oracle SQL Developer, connect to Oracle Database 21c, and run the SQL scrip
 The database contains the following tables:
 # Customers:
 Stores customer information such as customer ID, name, email, and city. 
-[Screenshot](https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/648c382a12c05dee97d0433ab47ba179a97a9d91/Screenshot%202026-09-18.png)
+[Screenshot](https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/abf7ab9fdb82835ec41fa5c61aa3c852e45fd2fb/Screenshot%202026-09-20%20092158.png)
 # Products :
 Stores product information such as product ID, product name, category, and price.
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/90882cef5f49778973e3e66dfecf985f6c2c7c86/Screenshot%202026-09-19%20140526.png)
