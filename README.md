@@ -25,7 +25,7 @@ FROM orders o
 INNER JOIN customers c
     ON o.customer_id = c.customer_id
 ORDER BY o.order_date;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/c48886f96dced326d4812616cfcb4ad816be819f/Screenshot%202026-09-20%20082718.png)
 The query connects the orders table with the customers table using customer_id. This allows management to see which customer placed each order and the date of the order.
 Query 2:
 SELECT
