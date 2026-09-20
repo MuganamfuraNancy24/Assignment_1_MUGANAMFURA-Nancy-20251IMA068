@@ -87,4 +87,79 @@ WHERE total_spend > (
     FROM customer_totals
 )
 ORDER BY total_spend DESC;
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad6f76b7ff726406ea708030165f1d45465dd496/Screenshot%202026-09-20%20085858.png)
+This query uses a CTE to calculate the total spending of each customer by multiplying the quantity purchased by the product price. It then calculates the average customer spending and returns only customers whose total spending is above the average.
+# Rank customers by total amount spent, highest first
+SELECT
+    c.customer_id,
+    c.customer_name,
+    SUM(oi.quantity * p.price) AS total_spend,
+    RANK() OVER (
+        ORDER BY SUM(oi.quantity * p.price) DESC
+    ) AS spending_rank
+FROM customers c
+JOIN orders o
+    ON c.customer_id = o.customer_id
+JOIN order_items oi
+    ON o.order_id = oi.order_id
+JOIN products p
+    ON oi.product_id = p.product_id
+GROUP BY c.customer_id, c.customer_name
+ORDER BY spending_rank;
 [Screenshot] (
+This calculates each customer's total spending and uses RANK() to rank customers from the highest spender to the lowest.
+# Number each customer's orders in the order placed
+SELECT
+    c.customer_id,
+    c.customer_name,
+    o.order_id,
+    o.order_date,
+    ROW_NUMBER() OVER (
+        PARTITION BY c.customer_id
+        ORDER BY o.order_date, o.order_id
+    ) AS order_number
+FROM customers c
+JOIN orders o
+    ON c.customer_id = o.customer_id
+ORDER BY c.customer_id, order_number;
+[Screenshot] (
+ROW_NUMBER() assigns a sequential number to each customer's orders based on the order date.
+# Show a running total of revenue over time
+SELECT
+    o.order_date,
+    SUM(oi.quantity * p.price) AS daily_revenue,
+    SUM(SUM(oi.quantity * p.price)) OVER (
+        ORDER BY o.order_date
+    ) AS running_revenue
+FROM orders o
+JOIN order_items oi
+    ON o.order_id = oi.order_id
+JOIN products p
+    ON oi.product_id = p.product_id
+GROUP BY o.order_date
+ORDER BY o.order_date;
+[Screenshot] (
+The query calculates revenue for each order date and then uses a window function to calculate the cumulative revenue over time.
+# Show days between the current and previous order for each customer
+SELECT
+    customer_id,
+    customer_name,
+    order_id,
+    order_date,
+    order_date - LAG(order_date) OVER (
+        PARTITION BY customer_id
+        ORDER BY order_date, order_id
+    ) AS days_between_orders
+FROM (
+    SELECT
+        c.customer_id,
+        c.customer_name,
+        o.order_id,
+        o.order_date
+    FROM customers c
+    JOIN orders o
+        ON c.customer_id = o.customer_id
+)
+ORDER BY customer_id, order_date;
+[Screenshot] (
+LAG() retrieves the previous order date for each customer. Subtracting the previous date from the current date gives the number of days between orders. The first order for each customer will have NULL because there is no previous order.
