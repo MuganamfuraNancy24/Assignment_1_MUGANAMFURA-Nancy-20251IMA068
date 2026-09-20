@@ -39,6 +39,6 @@ FROM order_items oi
 INNER JOIN products p
     ON oi.product_id = p.product_id
 ORDER BY oi.order_id;
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/ad7953f55d3a84fe1ea01179532142116ff25524/Screenshot%202026-09-20%20084026.png)
 This query connects order items with products so that the supermarket can see which products were purchased, their categories, prices, and quantities.
 ##CTE Query
