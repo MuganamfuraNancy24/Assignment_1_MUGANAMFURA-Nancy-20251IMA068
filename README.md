@@ -10,10 +10,8 @@ Open Oracle SQL Developer, connect to Oracle Database 21c, and run the SQL scrip
 ## 5. Database Tables
 The database contains the following tables:
 Customers: Stores customer information such as customer ID, name, email, and city.
-
-Products
-
-Stores product information such as product ID, product name, category, and price.
+  (image alt){https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/8c825f1c8b1883020f1fc5d4ad512f1c12162a50/Screenshot%202026-09-18.png}
+Products : Stores product information such as product ID, product name, category, and price.
 
 Orders
 
