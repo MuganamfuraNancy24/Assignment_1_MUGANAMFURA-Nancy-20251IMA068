@@ -12,5 +12,5 @@ The database contains the following tables:
 Customers: Stores customer information such as customer ID, name, email, and city.[Screenshot](https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/648c382a12c05dee97d0433ab47ba179a97a9d91/Screenshot%202026-09-18.png)
 Products : Stores product information such as product ID, product name, category, and price.[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/90882cef5f49778973e3e66dfecf985f6c2c7c86/Screenshot%202026-09-19%20140526.png)
 Orders:Stores customer orders and the dates on which they were placed.
-[Screenshot] (
+[Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/b975bae1bed03a8fb96519195f1ddd4f349bc946/Screenshot%202026-09-19%20140601.png)
 Order Items:Stores the individual products included in each order, including the quantity. [Screenshot] (
