@@ -19,7 +19,7 @@ Stores customer orders and the dates on which they were placed.
 # Order Items:
 Stores the individual products included in each order, including the quantity. [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/238f8210cc0aff09f819ad26c5f8472202675b6c/Screenshot%202026-09-19%20140643.png)
 ## JOIN Queries
-Query 1:This query uses an INNER JOIN to display order information together with the customer who placed each order.
+# Query 1:This query uses an INNER JOIN to display order information together with the customer who placed each order.
 SELECT 
     o.order_id,
     c.customer_name,
@@ -31,7 +31,7 @@ INNER JOIN customers c
 ORDER BY o.order_date;
 [Screenshot] (https://github.com/MuganamfuraNancy24/Assignment_1_MUGANAMFURA-Nancy-20251IMA068/blob/c48886f96dced326d4812616cfcb4ad816be819f/Screenshot%202026-09-20%20082718.png)
 The query connects the orders table with the customers table using customer_id. This allows management to see which customer placed each order and the date of the order.
-Query 2:
+# Query 2:
 SELECT
     oi.order_item_id,
     oi.order_id,
